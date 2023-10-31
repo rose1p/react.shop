@@ -10,7 +10,7 @@ router.get('/list.json', function (req, res) { //localhost:5000/books/list.json?
     const sql = 'call books(?,?,?)';
     db.get().query(sql, [query, page, size], function (err, rows) {
         if (err) {
-            console.log('도서목록 오류: ', err)
+            //console.log('도서목록 오류: ', err)
         } else {
             console.log(rows)
             res.send({ list: rows[0], total: rows[1][0].total });
@@ -54,5 +54,6 @@ router.post('/delete', function (req, res) {
         }
     });
 });
+
 
 module.exports = router;
